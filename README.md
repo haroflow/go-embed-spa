@@ -41,7 +41,7 @@ When changing backend code, re-run `go run . -dev`.
 
 # Build and run 
 
-Tested on Windows: PowerShell seems to have a problem with this, use cmd to build/run the backend.
+Tested on Windows: PowerShell/Explorer seems to have a problem with this, I believe it's related to the flag package... use cmd to build/run the backend.
 
 Tested on WSL: works fine, but the browser can't access localhost:8081, needed to use the IP of the VM.
 
