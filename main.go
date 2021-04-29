@@ -8,7 +8,6 @@ import (
 	"log"
 	"math/rand"
 	"mime"
-	"net"
 	"net/http"
 	"path/filepath"
 
@@ -18,7 +17,7 @@ import (
 //go:embed spa/dist/*
 var static embed.FS
 
-var listenAddr = flag.String("addr", "0.0.0.0:8081", "listen address")
+var devMode = flag.Bool("dev", false, "development mode")
 
 func main() {
 	flag.Parse()
@@ -74,11 +73,15 @@ func main() {
 
 	// Open the browser
 	go func() {
-		_, port, _ := net.SplitHostPort(*listenAddr)
-		browser.OpenURL(fmt.Sprintf("http://127.0.0.1:%s", port))
+		port := 8081
+		if *devMode {
+			port = 8080
+		}
+
+		browser.OpenURL(fmt.Sprintf("http://127.0.0.1:%d", port))
 	}()
 
 	// Open the http server
-	log.Println("Listening on address:", *listenAddr)
-	http.ListenAndServe(*listenAddr, nil)
+	log.Println("Listening on address 0.0.0.0:8081")
+	http.ListenAndServe("0.0.0.0:8081", nil)
 }
