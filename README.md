@@ -42,7 +42,8 @@ When changing backend code, re-run `go run . -dev`.
 # Build and run 
 
 Tested on Windows: PowerShell seems to have a problem with this, use cmd to build/run the backend.
-Tested on WSL: works fine, but the browser can't access with localhost, needed to use the IP of the VM.
+
+Tested on WSL: works fine, but the browser can't access localhost:8081, needed to use the IP of the VM.
 
 Build the frontend:
 ```
@@ -65,7 +66,7 @@ Run:
 It should open the browser on port 8081 (backend serving embedded SPA).
 You should be able to view a list of items and add random items using go as the backend.
 
-This binary should contain the whole project, try copying it to another folder and running.
+This binary should contain the whole project, try copying it to another folder/system and running.
 
 # Notes
 
